@@ -11,29 +11,19 @@ import com.example.searchfilter.databinding.ItemExampleBinding
 import com.example.searchfilter.datas.ExampleData
 
 class SearchAdapter
-    : ListAdapter<ExampleData, SearchAdapter.ViewHolder>(diffUtil),
-    Filterable {
+: ListAdapter<ExampleData, SearchAdapter.ViewHolder>(diffUtil),
+Filterable {
 
     private var originList = arrayListOf<ExampleData>()
 
     private val searchFilter : Filter = object : Filter() {
         override fun performFiltering(input: CharSequence): FilterResults {
-
-            val filteredList: ArrayList<ExampleData> = ArrayList()
-            if (input.isEmpty()) {
-                filteredList.addAll(originList)
+            val filteredList = if (input.isEmpty()) {
+                originList
             } else {
-                val filterPattern = input.toString().lowercase().trim { it <= ' '}
-                for (item in originList) {
-                    if(item.name.lowercase().contains(filterPattern)){
-                        filteredList.add(item)
-                    }
-                }
+                originList.filter { it.name.lowercase().contains(input) }
             }
-            val results = FilterResults()
-            results.values = filteredList
-            return results
-
+            return FilterResults().apply { values = filteredList }
         }
 
         override fun publishResults(input: CharSequence, results: FilterResults) {
