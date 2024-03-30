@@ -29,6 +29,10 @@ class FirstFragment : Fragment() {
             recyclerview.adapter = adapter
             recyclerview.layoutManager = GridLayoutManager(activity, 2)
             subscribeUI(adapter)
+
+            btnDataLoad.setOnClickListener {
+                viewModel.fetchData()
+            }
         }
         return binding.root
 
@@ -36,8 +40,11 @@ class FirstFragment : Fragment() {
 
     private fun subscribeUI(adapter: DataAdapter){
         viewModel.exampleData.observe(viewLifecycleOwner){
-            if(it.isNotEmpty()){
-                adapter.submitList(it)
+            binding.apply {
+                isLoading = it.isEmpty()
+                if (!isLoading){
+                    adapter.submitList(it)
+                }
             }
         }
     }
