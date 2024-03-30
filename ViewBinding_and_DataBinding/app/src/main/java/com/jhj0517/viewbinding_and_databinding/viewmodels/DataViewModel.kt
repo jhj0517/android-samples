@@ -16,11 +16,11 @@ class DataViewModel: ViewModel() {
         fetchData()
     }
 
-    private fun fetchData() {
+    fun fetchData() {
         // Fetches data from empty array list.
         viewModelScope.launch {
             _exampleData.value = arrayListOf()
-            delay(3000L)
+            delay(2000L)
             _exampleData.value = arrayListOf(
                 ExampleData("Grape"),
                 ExampleData("Apple"),
