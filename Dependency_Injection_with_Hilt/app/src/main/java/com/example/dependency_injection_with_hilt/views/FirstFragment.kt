@@ -14,6 +14,9 @@ import com.example.dependency_injection_with_hilt.localdb.AppDatabase
 import com.example.dependency_injection_with_hilt.localdb.DataDao
 import com.example.dependency_injection_with_hilt.models.ExampleData
 import com.example.dependency_injection_with_hilt.viewmodels.DataViewModel
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class FirstFragment : Fragment(),
     BaseRecyclerClickListener<ExampleData> {
 
@@ -22,13 +25,7 @@ class FirstFragment : Fragment(),
 
     private val viewModel : DataViewModel by viewModels()
 
-    // This should not be initialized like this. Use Hilt instead.
-    private var db: AppDatabase? = null
-    private var dataDao: DataDao? = db?.dataDao()
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        db = AppDatabase.buildDB(requireActivity())
-        dataDao = db!!.dataDao()
         super.onCreate(savedInstanceState)
     }
 
@@ -45,14 +42,14 @@ class FirstFragment : Fragment(),
 
             btnEnter.setOnClickListener {
                 val data = ExampleData( name = etInput.text.toString() )
-                viewModel.insertLocalData(dataDao!!, data)
+                viewModel.insertLocalData(data)
             }
         }
         return binding.root
     }
 
     private fun subscribeUI(adapter: DataAdapter){
-        viewModel.getLocalData(dataDao!!)
+        viewModel.getLocalData()
 
         viewModel.exampleDataList.observe(viewLifecycleOwner){
             adapter.submitList(it)
@@ -73,7 +70,7 @@ class FirstFragment : Fragment(),
     }
 
     override fun onDelete(item: ExampleData) {
-        viewModel.deleteLocalData(dataDao!!, item)
+        viewModel.deleteLocalData(item)
     }
 
 }

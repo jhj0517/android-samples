@@ -9,10 +9,18 @@ import com.example.dependency_injection_with_hilt.models.ExampleData
 
 @Database(entities = [ExampleData::class], exportSchema = false, version = 1)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun dataDao(): DataDao?
+    abstract fun dataDao(): DataDao
 
     companion object{
-        fun buildDB(context: Context): AppDatabase {
+        @Volatile private var instance: AppDatabase? = null
+
+        fun getInstance(context: Context): AppDatabase {
+            return instance ?: synchronized(this) {
+                instance ?: buildDB(context).also { instance = it }
+            }
+        }
+
+        private fun buildDB(context: Context): AppDatabase {
             return databaseBuilder(
                 context,
                 AppDatabase::class.java,
@@ -20,4 +28,5 @@ abstract class AppDatabase : RoomDatabase() {
             ).build()
         }
     }
+
 }
