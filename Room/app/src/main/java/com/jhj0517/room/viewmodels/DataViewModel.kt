@@ -18,9 +18,8 @@ class DataViewModel: ViewModel(){
         // According to official guides here : https://developer.android.com/kotlin/coroutines/coroutines-adv?authuser=2#main-safety
         // Using room components should be dealt with in Dispatchers.IO
         viewModelScope.launch(Dispatchers.IO) {
-            // Since this is called for initialization of the data in the lifecycle on such "onCreateView",
-            // You should use `postValue` instead of `setValue`
-            _exampleDataList.postValue(dataDao.getAllData()) // Use `postValue` instead of `setValue` on Dispatchers.IO
+            // You should use `postValue` instead of `setValue` on Dispatchers.IO
+            _exampleDataList.postValue(dataDao.getAllData())
         }
     }
 
@@ -28,7 +27,6 @@ class DataViewModel: ViewModel(){
         viewModelScope.launch(Dispatchers.IO) {
             dataDao.insertData(data)
             _exampleDataList.postValue(dataDao.getAllData())
-            //_exampleDataList.value = dataDao.getAllData()
         }
     }
 
@@ -36,7 +34,6 @@ class DataViewModel: ViewModel(){
         viewModelScope.launch(Dispatchers.IO) {
             dataDao.deleteData(data)
             _exampleDataList.postValue(dataDao.getAllData())
-            //_exampleDataList.value = dataDao.getAllData()
         }
     }
 }
