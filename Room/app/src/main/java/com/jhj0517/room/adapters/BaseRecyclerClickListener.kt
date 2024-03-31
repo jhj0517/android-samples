@@ -1,8 +1,8 @@
 package com.jhj0517.room.adapters
 
-abstract class BaseRecyclerClickListener<T> {
+interface BaseRecyclerClickListener<T> {
 
-    abstract fun onItemClick(item: T)
-    abstract fun onDelete(item: T)
+    fun onItemClick(item: T)
+    fun onDelete(item: T)
 
 }
