@@ -13,16 +13,30 @@ class DataViewModel: ViewModel(){
     private val _exampleDataList = MutableLiveData<List<ExampleData>>()
     val exampleDataList get() = _exampleDataList
 
-    fun getLocalData(dataDao: DataDao){
+    // You should not pass Dao just like this. Use Hilt instead.
+    fun getInitialLocalData(dataDao: DataDao){
+        // According to official guides here : https://developer.android.com/kotlin/coroutines/coroutines-adv?authuser=2#main-safety
+        // Using room components should be dealt with in Dispatchers.IO
         viewModelScope.launch(Dispatchers.IO) {
-            _exampleDataList.postValue(dataDao.getAllData()) // can not setValue on Dispatchers.IO
+            // Since this is called for initialization of the data in the lifecycle on such "onCreateView",
+            // You should use `postValue` instead of `setValue`
+            _exampleDataList.postValue(dataDao.getAllData()) // Use `postValue` instead of `setValue` on Dispatchers.IO
         }
     }
 
     fun insertLocalData(dataDao: DataDao, data:ExampleData){
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             dataDao.insertData(data)
+            _exampleDataList.postValue(dataDao.getAllData())
+            //_exampleDataList.value = dataDao.getAllData()
         }
-        getLocalData(dataDao)
+    }
+
+    fun deleteLocalData(dataDao: DataDao, data:ExampleData){
+        viewModelScope.launch(Dispatchers.IO) {
+            dataDao.deleteData(data)
+            _exampleDataList.postValue(dataDao.getAllData())
+            //_exampleDataList.value = dataDao.getAllData()
+        }
     }
 }
