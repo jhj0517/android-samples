@@ -14,6 +14,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:textAlignment="textStart"
+            android:textDirection="locale"
             android:textSize="25sp"/>
         <ImageButton
             android:id="@+id/btn_delete"
