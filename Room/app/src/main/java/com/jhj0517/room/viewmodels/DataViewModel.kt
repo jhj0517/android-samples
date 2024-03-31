@@ -18,7 +18,7 @@ class DataViewModel: ViewModel(){
     fun getLocalData(dataDao: DataDao){
         // According to official guides here : https://developer.android.com/kotlin/coroutines/coroutines-adv?authuser=2#main-safety
         // Using room components should be dealt with in Dispatchers.IO
-        viewModelScope.launch(Dispatchers.Main) {
+        viewModelScope.launch(Dispatchers.IO) {
             // You should use `postValue` instead of `setValue` on Dispatchers.IO
             _exampleDataList.postValue(dataDao.getAllData())
         }
