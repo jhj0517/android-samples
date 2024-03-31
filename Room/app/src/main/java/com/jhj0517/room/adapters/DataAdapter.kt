@@ -10,13 +10,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jhj0517.room.databinding.ItemExampleBinding
 import com.jhj0517.room.models.ExampleData
 
-class DataAdapter
+class DataAdapter (private val clickListener: BaseRecyclerClickListener<ExampleData>)
     : ListAdapter<ExampleData, DataAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(val binding: ItemExampleBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(items: ExampleData){
             with(binding){
                 name.text = items.name
+            }
+        }
+
+        init {
+            with(binding){
+                btnDelete.setOnClickListener {
+                    val item = currentList[adapterPosition]
+                    clickListener.onDelete(item)
+                }
             }
         }
     }
