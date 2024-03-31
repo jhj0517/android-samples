@@ -22,7 +22,8 @@ BaseRecyclerClickListener<ExampleData> {
 
     private val viewModel : DataViewModel by viewModels()
 
-    // This should not be initialized like this. Use Hilt instead.
+    // These should not be initialized like this. You should use Hilt instead.
+    // For the Hilt-using version, see : https://github.com/jhj0517/Android-Practices/tree/master/Dependency_Injection_with_Hilt
     private var db: AppDatabase? = null
     private var dataDao: DataDao? = db?.dataDao()
 

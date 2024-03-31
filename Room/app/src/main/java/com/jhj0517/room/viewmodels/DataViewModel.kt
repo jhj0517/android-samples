@@ -13,7 +13,8 @@ class DataViewModel: ViewModel(){
     private val _exampleDataList = MutableLiveData<List<ExampleData>>()
     val exampleDataList get() = _exampleDataList
 
-    // You should not pass Dao just like this. Use Hilt instead.
+    // You should not pass Dao just like this. You should use Hilt instead.
+    // For the Hilt-using version, see : https://github.com/jhj0517/Android-Practices/tree/master/Dependency_Injection_with_Hilt
     fun getLocalData(dataDao: DataDao){
         // According to official guides here : https://developer.android.com/kotlin/coroutines/coroutines-adv?authuser=2#main-safety
         // Using room components should be dealt with in Dispatchers.IO
