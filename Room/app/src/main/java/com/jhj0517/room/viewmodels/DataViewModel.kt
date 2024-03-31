@@ -14,10 +14,10 @@ class DataViewModel: ViewModel(){
     val exampleDataList get() = _exampleDataList
 
     // You should not pass Dao just like this. Use Hilt instead.
-    fun getInitialLocalData(dataDao: DataDao){
+    fun getLocalData(dataDao: DataDao){
         // According to official guides here : https://developer.android.com/kotlin/coroutines/coroutines-adv?authuser=2#main-safety
         // Using room components should be dealt with in Dispatchers.IO
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.Main) {
             // You should use `postValue` instead of `setValue` on Dispatchers.IO
             _exampleDataList.postValue(dataDao.getAllData())
         }

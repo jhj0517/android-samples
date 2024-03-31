@@ -52,7 +52,7 @@ BaseRecyclerClickListener<ExampleData> {
     }
 
     private fun subscribeUI(adapter: DataAdapter){
-        viewModel.getInitialLocalData(dataDao!!)
+        viewModel.getLocalData(dataDao!!)
 
         viewModel.exampleDataList.observe(viewLifecycleOwner){
             adapter.submitList(it)
