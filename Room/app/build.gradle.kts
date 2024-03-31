@@ -51,8 +51,8 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx) // To use coroutines with room
+    kapt(libs.androidx.room.compiler) // This should be added with `kapt`, not `annotationProcessor`; Figured out with some troubleshooting.
     kapt(libs.androidx.room.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
