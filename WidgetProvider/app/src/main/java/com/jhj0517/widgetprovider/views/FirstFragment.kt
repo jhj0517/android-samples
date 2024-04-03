@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jhj0517.widgetprovider.adapters.ExampleAdapter
@@ -31,6 +32,10 @@ class FirstFragment : Fragment() {
             recyclerview.adapter = adapter
             recyclerview.layoutManager =  LinearLayoutManager(activity)
             subscribeUI(adapter)
+
+            btnWidget.setOnClickListener {
+                Toast.makeText(context, "Widget is created.", Toast.LENGTH_SHORT).show()
+            }
         }
         return binding.root
     }
