@@ -2,9 +2,14 @@ package com.jhj0517.widgetprovider.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.jhj0517.widgetprovider.R
 import com.jhj0517.widgetprovider.models.ExampleData
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -19,10 +24,19 @@ class FirstFragmentViewModel @Inject constructor(
     val exampleData get() = _exampleData
 
     init {
-        updateFruits()
+        startRepeat()
     }
 
-    fun updateFruits(){
+    private fun startRepeat(){
+        viewModelScope.launch(Dispatchers.Main) {
+            while (isActive) {
+                updateFruits()
+                delay(updateInterval)
+            }
+        }
+    }
+
+    private fun updateFruits(){
         _exampleData.value = getFruits().random()
     }
 
@@ -51,7 +65,15 @@ class FirstFragmentViewModel @Inject constructor(
                     Eaten fresh or in dried form (as raisins, currants and sultanas), grapes also hold cultural significance in many parts of the world,
                     particularly for their role in winemaking. Other grape-derived products include various types of jam, juice, vinegar and oil.
                     """.trimIndent()
-            )
+            ),
+            ExampleData(
+                image = R.drawable.orange,
+                name = "orange",
+                desc = """
+                    An orange, also called sweet orange to distinguish it from the bitter orange Citrus × aurantium,
+                    is the fruit of a tree in the family Rutaceae.
+                    """.trimIndent()
+            ),
         )
     }
 }
