@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.jhj0517.widgetprovider.databinding.FragmentFirstBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null

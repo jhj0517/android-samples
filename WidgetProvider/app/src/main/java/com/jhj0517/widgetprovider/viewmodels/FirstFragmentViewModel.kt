@@ -3,7 +3,9 @@ package com.jhj0517.widgetprovider.viewmodels
 import androidx.lifecycle.ViewModel
 import com.jhj0517.widgetprovider.R
 import com.jhj0517.widgetprovider.models.ExampleData
+import dagger.hilt.android.lifecycle.HiltViewModel
 
+@HiltViewModel
 class DataViewModel: ViewModel(){
     val exampleDataSet = listOf(
         ExampleData(
