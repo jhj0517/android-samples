@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jhj0517.widgetprovider.databinding.ItemExampleBinding
 import com.jhj0517.widgetprovider.models.ExampleData
 
-class ExampleAdapter (private val clickListener: BaseRecyclerClickListener<ExampleData>)
+class ExampleAdapter
     : ListAdapter<ExampleData, ExampleAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(val binding: ItemExampleBinding): RecyclerView.ViewHolder(binding.root){
@@ -16,15 +16,6 @@ class ExampleAdapter (private val clickListener: BaseRecyclerClickListener<Examp
             with(binding){
                 tvName.text = items.name
                 ivImage.setImageResource(items.image)
-            }
-        }
-
-        init {
-            with(binding){
-                root.setOnClickListener {
-                    val item = currentList[adapterPosition]
-                    clickListener.onClick(item)
-                }
             }
         }
     }
