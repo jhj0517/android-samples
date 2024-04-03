@@ -14,15 +14,16 @@ class ExampleAdapter (private val clickListener: BaseRecyclerClickListener<Examp
     inner class ViewHolder(val binding: ItemExampleBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(items: ExampleData){
             with(binding){
-                name.text = items.name
+                tvName.text = items.name
+                ivImage.setImageResource(items.image)
             }
         }
 
         init {
             with(binding){
-                btnDelete.setOnClickListener {
+                root.setOnClickListener {
                     val item = currentList[adapterPosition]
-                    clickListener.onDelete(item)
+                    clickListener.onClick(item)
                 }
             }
         }

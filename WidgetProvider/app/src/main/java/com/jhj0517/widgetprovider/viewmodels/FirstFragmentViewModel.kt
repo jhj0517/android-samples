@@ -1,4 +1,6 @@
 package com.jhj0517.widgetprovider.viewmodels
 
-class FirstFragmentViewModel {
+import androidx.lifecycle.ViewModel
+
+class DataViewModel: ViewModel(){
 }
