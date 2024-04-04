@@ -1,17 +1,8 @@
 package com.jhj0517.widgetprovider.widgets
 
-import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
-import android.content.Intent
-import android.os.Build
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
-import android.widget.RemoteViews
-import com.jhj0517.widgetprovider.R
-import com.jhj0517.widgetprovider.models.ExampleData
 
 class FruitWidget : AppWidgetProvider(){
 
