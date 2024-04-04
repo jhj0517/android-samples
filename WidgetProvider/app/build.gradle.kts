@@ -54,9 +54,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
+    // hilt
     implementation(libs.google.dagger.hilt)
     kapt(libs.google.dagger.hilt.compiler)
+    // livedata
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+
 }
 
 kapt {
