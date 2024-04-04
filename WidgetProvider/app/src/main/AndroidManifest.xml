@@ -24,6 +24,15 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:exported="true"
+            android:name=".widgets.FruitWidgetService"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="androidx.lifecycle.LifecycleService"/>
+            </intent-filter>
+        </service>
+
         <receiver android:name=".widgets.FruitWidget"
             android:exported="false">
             <intent-filter>
