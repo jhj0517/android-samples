@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,9 +28,9 @@
         </activity>
 
         <service
-            android:exported="true"
             android:name=".widgets.FruitWidgetService"
-            android:permission="android.permission.BIND_JOB_SERVICE">
+            android:exported="true"
+            android:foregroundServiceType="dataSync">
             <intent-filter>
                 <action android:name="androidx.lifecycle.LifecycleService"/>
             </intent-filter>
