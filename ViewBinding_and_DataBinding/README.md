@@ -3,4 +3,5 @@
 
 # Medium Post
 For more details about this project, please check out : 
-- [Applying View Binding & Data Binding in Android](https://medium.com/@developerjo0517/applying-view-binding-data-binding-in-android-e9d3d074cf7f)
+
+- [Endlessly Updating a Widget at Short Intervals on Android](https://medium.com/@developerjo0517/endlessly-updating-a-widget-at-short-intervals-on-android-ca29573d5243)
