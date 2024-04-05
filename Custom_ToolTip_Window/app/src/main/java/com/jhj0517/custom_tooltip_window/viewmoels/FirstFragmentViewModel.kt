@@ -26,8 +26,6 @@ class FirstFragmentViewModel: ViewModel(){
                     The fruit is widely appreciated for its characteristic aroma, bright red color,
                     juicy texture, and sweetness. It is consumed in large quantities, either fresh or in
                     such prepared foods as jam, juice, pies, ice cream, milkshakes, and chocolates.
-                    Artificial strawberry flavorings and aromas are also widely used in products such as
-                    candy, soap, lip gloss, perfume, and many others.
                     """.trimIndent()
             ),
             ExampleData(
@@ -37,8 +35,6 @@ class FirstFragmentViewModel: ViewModel(){
                     A grape is a fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis.
                     Grapes are a non-climacteric type of fruit, generally occurring in clusters.
                     The cultivation of grapes began perhaps 8,000 years ago, and the fruit has been used as human food over history.
-                    Eaten fresh or in dried form (as raisins, currants and sultanas), grapes also hold cultural significance in many parts of the world,
-                    particularly for their role in winemaking. Other grape-derived products include various types of jam, juice, vinegar and oil.
                     """.trimIndent()
             ),
             ExampleData(
@@ -47,6 +43,15 @@ class FirstFragmentViewModel: ViewModel(){
                 desc = """
                     An orange, also called sweet orange to distinguish it from the bitter orange Citrus × aurantium,
                     is the fruit of a tree in the family Rutaceae.
+                    """.trimIndent()
+            ),
+            ExampleData(
+                image = R.drawable.tomato,
+                name = "tomato",
+                desc = """
+                    The tomato is the edible berry of the plant Solanum lycopersicum, commonly known as the tomato plant.
+                    The species originated in western South America, Mexico, and Central America.
+                    The Nahuatl word tomatl gave rise to the Spanish word tomate, from which the English word tomato derives.
                     """.trimIndent()
             )
         )
