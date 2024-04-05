@@ -1,9 +1,7 @@
 package com.jhj0517.custom_tooltip_window.views
 
 import android.content.Context
-import android.graphics.BitmapFactory
 import android.graphics.Rect
-import android.graphics.drawable.BitmapDrawable
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
