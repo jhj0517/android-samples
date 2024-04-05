@@ -51,7 +51,13 @@ RecyclerClickInterface<ExampleData>{
         _binding = null
     }
 
-    override fun onClick(item: ExampleData) {
-
+    override fun onClick(item: ExampleData, view: View) {
+        val toolTip = TooltipView(
+            context = requireActivity(),
+            data = item,
+            anchor = view,
+            showCheckMark = true
+        )
+        toolTip.showToolTip()
     }
 }
