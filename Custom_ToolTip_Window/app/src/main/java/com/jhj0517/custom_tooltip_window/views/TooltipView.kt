@@ -59,10 +59,6 @@ class TooltipView(
             description.text = data.desc
         }
 
-        checkMarkView.apply {
-            setImageResource(R.drawable.ic_check_mark)
-        }
-
         tooltipWindow.apply {
             height = ConstraintLayout.LayoutParams.WRAP_CONTENT
             width = ConstraintLayout.LayoutParams.MATCH_PARENT
@@ -70,6 +66,10 @@ class TooltipView(
             isTouchable = true
             // Transparent background
             setBackgroundDrawable(null)
+        }
+
+        checkMarkView.apply {
+            setImageResource(R.drawable.ic_check_mark)
         }
 
         checkMarkWindow.apply {
