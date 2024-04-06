@@ -23,7 +23,7 @@ class ExampleAdapter (private val clickListener: RecyclerClickInterface<ExampleD
             with(binding){
                 root.setOnClickListener {
                     val item = currentList[adapterPosition]
-                    clickListener.onClick(item, root)
+                    clickListener.onClick(item, ivImage)
                 }
             }
         }
