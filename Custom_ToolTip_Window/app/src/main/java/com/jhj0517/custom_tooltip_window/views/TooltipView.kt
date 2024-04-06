@@ -70,6 +70,7 @@ class TooltipView(
             width = ConstraintLayout.LayoutParams.MATCH_PARENT
             isOutsideTouchable = true
             isTouchable = true
+            isFocusable = true
             // Transparent background
             setBackgroundDrawable(null)
         }
