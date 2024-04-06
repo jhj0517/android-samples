@@ -80,7 +80,7 @@ class TooltipView(
     }
 
     private fun addAnimation(){
-        // You can set your own animation here
+        // You can add your own animation here
         tooltipWindow.animationStyle = androidx.appcompat.R.style.Animation_AppCompat_DropDownUp
         checkMarkWindow.animationStyle = androidx.appcompat.R.style.Animation_AppCompat_Dialog
     }
