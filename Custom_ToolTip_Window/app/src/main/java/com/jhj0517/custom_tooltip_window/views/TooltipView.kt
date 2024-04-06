@@ -32,16 +32,6 @@ class TooltipView(
         addDismissListener()
     }
     fun showToolTip() {
-        tooltipWindow.height = ConstraintLayout.LayoutParams.WRAP_CONTENT
-        tooltipWindow.width = ConstraintLayout.LayoutParams.MATCH_PARENT
-
-        tooltipWindow.isOutsideTouchable = true
-        tooltipWindow.isTouchable = true
-
-        tooltipWindow.contentView = binding.root
-        // Transparent background
-        tooltipWindow.setBackgroundDrawable(null)
-
         val screenPos = IntArray(2)
         // Get location of anchor view on screen
         anchor.getLocationOnScreen(screenPos)
@@ -54,6 +44,7 @@ class TooltipView(
 
         val posX = 0
         val posY = anchorRect.bottom + 20
+        tooltipWindow.contentView = binding.root
         tooltipWindow.showAtLocation(anchor, Gravity.NO_GRAVITY, posX, posY)
 
         if (showCheckMark){
@@ -63,7 +54,6 @@ class TooltipView(
 
     private fun initViews() {
         _binding = ViewTooltipBinding.inflate(LayoutInflater.from(context), null, false)
-        // Bind your views here
         binding.apply {
             name.text = data.name
             description.text = data.desc
@@ -71,6 +61,21 @@ class TooltipView(
 
         checkMarkView.apply {
             setImageResource(R.drawable.ic_check_mark)
+        }
+
+        tooltipWindow.apply {
+            height = ConstraintLayout.LayoutParams.WRAP_CONTENT
+            width = ConstraintLayout.LayoutParams.MATCH_PARENT
+            isOutsideTouchable = true
+            isTouchable = true
+            // Transparent background
+            setBackgroundDrawable(null)
+        }
+
+        checkMarkWindow.apply {
+            height = 100
+            width = 100
+            setBackgroundDrawable(null)
         }
     }
 
@@ -84,17 +89,14 @@ class TooltipView(
         // Binding to null when dismiss to avoid memory leak
         tooltipWindow.setOnDismissListener {
             _binding = null
+
+            if(checkMarkWindow.isShowing){
+                checkMarkWindow.dismiss()
+            }
         }
     }
 
     private fun overlayCheckMark(anchor: View) {
-        checkMarkWindow.height = 100
-        checkMarkWindow.width = 100
-
-        checkMarkWindow.isOutsideTouchable = true
-        checkMarkWindow.isTouchable = true
-        checkMarkWindow.setBackgroundDrawable(null)
-
         val screenPos = IntArray(2)
 
         anchor.getLocationOnScreen(screenPos)
@@ -108,7 +110,6 @@ class TooltipView(
         val posX = (anchorRect.centerX() - checkMarkWindow.width/2)
         // center Y
         val posY = (anchorRect.centerY() - checkMarkWindow.height/2)
-
         checkMarkWindow.contentView = checkMarkView
         checkMarkWindow.showAtLocation(anchor, Gravity.NO_GRAVITY, posX, posY)
     }
