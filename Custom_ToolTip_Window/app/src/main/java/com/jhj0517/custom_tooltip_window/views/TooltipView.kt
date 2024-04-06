@@ -59,6 +59,7 @@ class TooltipView(
 
     private fun initViews() {
         _binding = ViewTooltipBinding.inflate(LayoutInflater.from(context), null, false)
+        // Bind your view with data class
         binding.apply {
             name.text = data.name
             description.text = data.desc
@@ -98,7 +99,7 @@ class TooltipView(
         // Binding to null when dismiss to avoid memory leak
         tooltipWindow.setOnDismissListener {
             _binding = null
-
+            // Dismiss check mark together
             if(checkMarkWindow.isShowing){
                 checkMarkWindow.dismiss()
             }
