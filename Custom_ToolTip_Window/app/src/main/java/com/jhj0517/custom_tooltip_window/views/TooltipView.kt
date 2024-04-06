@@ -12,6 +12,8 @@ import com.jhj0517.custom_tooltip_window.R
 import com.jhj0517.custom_tooltip_window.databinding.ViewTooltipBinding
 import com.jhj0517.custom_tooltip_window.models.ExampleData
 
+const val TOOLTIP_BOTTOM_MARGIN = 20
+
 class TooltipView(
     private val context: Context,
     private val data: ExampleData,
@@ -31,23 +33,26 @@ class TooltipView(
         addAnimation()
         addDismissListener()
     }
+
     fun showToolTip() {
-        val screenPos = IntArray(2)
         // Get location of anchor view on screen
+        val screenPos = IntArray(2)
         anchor.getLocationOnScreen(screenPos)
 
-        // Get rect for anchor view
+        // Get rect with same size as anchor view
         val anchorRect = Rect(
             screenPos[0], screenPos[1], screenPos[0]
-            + anchor.width, screenPos[1] + anchor.height
+                    + anchor.width, screenPos[1] + anchor.height
         )
 
+        // Define where to show tooltip
         val posX = 0
-        val posY = anchorRect.bottom + 20
+        val posY = anchorRect.bottom + TOOLTIP_BOTTOM_MARGIN
+
         tooltipWindow.contentView = binding.root
         tooltipWindow.showAtLocation(anchor, Gravity.NO_GRAVITY, posX, posY)
 
-        if (showCheckMark){
+        if (showCheckMark) {
             overlayCheckMark(anchor)
         }
     }
@@ -82,6 +87,10 @@ class TooltipView(
     private fun addAnimation(){
         // You can add your own animation here
         tooltipWindow.animationStyle = androidx.appcompat.R.style.Animation_AppCompat_DropDownUp
+        // Or you can set enter / exit transition as you want also
+        tooltipWindow.enterTransition = null
+        tooltipWindow.exitTransition = null
+
         checkMarkWindow.animationStyle = androidx.appcompat.R.style.Animation_AppCompat_Dialog
     }
 
