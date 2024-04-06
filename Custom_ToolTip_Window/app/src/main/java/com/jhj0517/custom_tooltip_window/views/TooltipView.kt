@@ -28,7 +28,7 @@ class TooltipView(
 
     init {
         initViews()
-        setAnimation()
+        addAnimation()
         addDismissListener()
     }
     fun showToolTip() {
@@ -79,7 +79,7 @@ class TooltipView(
         }
     }
 
-    private fun setAnimation(){
+    private fun addAnimation(){
         // You can set your own animation here
         tooltipWindow.animationStyle = androidx.appcompat.R.style.Animation_AppCompat_DropDownUp
         checkMarkWindow.animationStyle = androidx.appcompat.R.style.Animation_AppCompat_Dialog
