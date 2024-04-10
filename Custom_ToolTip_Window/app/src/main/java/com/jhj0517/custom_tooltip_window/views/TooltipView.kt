@@ -97,8 +97,8 @@ class TooltipView(
     }
 
     private fun addDismissListener() {
-        // Binding to null when dismiss to avoid memory leak
         tooltipWindow.setOnDismissListener {
+            // Binding to null when dismiss to avoid memory leak
             _binding = null
             // Dismiss check mark together
             if(checkMarkWindow.isShowing){
