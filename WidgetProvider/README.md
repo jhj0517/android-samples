@@ -1,5 +1,5 @@
 # Demo
-![ForegroundService](https://github.com/jhj0517/Android-Practices/assets/97279763/24da5ef0-f883-42d9-9075-0419ee441ade)
+![ForegroundService2](https://github.com/jhj0517/Android-Practices/assets/97279763/7bfb1838-b619-47ca-8774-c923c1564283)
 
 
 # Medium Post
