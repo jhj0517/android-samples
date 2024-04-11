@@ -1,5 +1,6 @@
 # Demo
-![demo](https://github.com/jhj0517/Android-Practices/assets/97279763/b9ae2dd4-9949-4943-958f-821f0f58f4ca)
+![demo](https://github.com/jhj0517/Android-Practices/assets/97279763/3d7f64e1-c8cc-4a32-ba22-c0ff1faaea1c)
+
 
 # Medium Post
 For more details about this project, please check out : 
