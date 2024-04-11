@@ -1,5 +1,5 @@
 # Android-Practices
-연습용 안드로이드 샘플 프로젝트들이 있는 레포지토리입니다. 각 프로젝트 폴더 안에 미디엄 포스트 링크가 함께 있습니다.
+연습용 안드로이드 샘플 프로젝트들입니다. 각 프로젝트 폴더 안에 미디엄 포스트 링크가 함께 있습니다.
 
 ### Sample
 - [Custom Tooltip Window](https://github.com/jhj0517/Android-Practices/tree/master/Custom_ToolTip_Window) : 커스텀 XML 을 이용한 자체 툴팁 뷰가 구현된 예시입니다. 체크마크 오버레이를 함께 보여줄 수도 있습니다.
