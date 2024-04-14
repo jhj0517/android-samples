@@ -49,14 +49,18 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
+
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx) // To use coroutines with room
     kapt(libs.androidx.room.compiler) // This should be added with `kapt`, not `annotationProcessor`; Figured out with some troubleshooting.
     kapt(libs.androidx.room.ktx)
+
     implementation(libs.google.dagger.hilt)
     kapt(libs.google.dagger.hilt.compiler)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
