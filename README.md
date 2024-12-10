@@ -1,3 +1,6 @@
+### Languages
+[한국어](https://github.com/jhj0517/Android-Practices/blob/master/README.md),  [English](https://github.com/jhj0517/Android-Practices/blob/master/README_en.md)
+
 # Android-Practices
 Collection of Android sample projects. Each project folder contains a link to a Medium post.
 
