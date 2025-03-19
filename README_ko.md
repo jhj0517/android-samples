@@ -1,5 +1,5 @@
 ### Languages
-[한국어](https://github.com/jhj0517/Android-Practices/blob/master/README.md),  [English](https://github.com/jhj0517/Android-Practices/blob/master/README_en.md)
+[한국어](https://github.com/jhj0517/Android-Practices/blob/master/README.md), [English](https://github.com/jhj0517/Android-Practices/blob/master/README_en.md)
 
 # Android-Practices
 연습용 안드로이드 샘플 프로젝트들입니다. 각 프로젝트 폴더 안에 미디엄 포스트 링크가 함께 있습니다.
@@ -13,7 +13,7 @@
   </details>
   
 - [Dependency_Injection_with_Hilt](https://github.com/jhj0517/Android-Practices/tree/master/Dependency_Injection_with_Hilt) : `Hilt` 를 이용한 의존성 주입이 구현된 예시입니다. `Room` 컴포넌트 모듈이 있습니다.
-- [Grouped_RecyclerView](https://github.com/jhj0517/Android-Practices/tree/master/Grouped_RecyclerView) : 그룹화 된 리사이클러뷰의 구현 예시입니다. 부모 - 자식 관계가 리사이클러뷰 안에 있습니다.
+- [Grouped_RecyclerView](https://github.com/jhj0517/Android-Practices/tree/master/Grouped_RecyclerView) : 그룹화 된 리사이클러뷰의 구현 예시입니다. 부모 - 자식 관계가 리사이클러뷰 안에 구현돼 있습니다.
   <details> <summary>PNG</summary> 
     
   ![demo2](https://github.com/jhj0517/Android-Practices/assets/97279763/5dd7b66e-6ec7-40f5-a9a1-05a04bb3d162)
@@ -48,7 +48,7 @@
 
   </details>
 
-- [WidgetProvider](https://github.com/jhj0517/Android-Practices/tree/master/WidgetProvider) : `ForegroundService` 를 이용해 짧은 인터벌로 끊임없이 업데이트 되는 홈스크린 위젯이 구현된 예시입니다.
+- [WidgetProvider](https://github.com/jhj0517/Android-Practices/tree/master/WidgetProvider) : `ForegroundService` 를 이용해 짧은 주기(3초)로 끊임없이 업데이트 되는 홈 화면 위젯이 구현된 예시입니다.
   <details> <summary>GIF</summary> 
     
   ![ForegroundService2](https://github.com/jhj0517/Android-Practices/assets/97279763/7bfb1838-b619-47ca-8774-c923c1564283)
